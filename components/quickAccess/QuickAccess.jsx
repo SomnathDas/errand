@@ -13,7 +13,7 @@ const QuickAccess = ({ parentFilter, parentSetFilter }) => {
   const [assignmentAmt, setAssignmentAmt] = useState(0);
 
   /* Firebase Database */
-  const tasksRef = collection(db, "tasks");
+  const tasksRef = collection(db, "users", auth.currentUser.uid, "tasks");
   const qForMeeting = query(tasksRef, where("tag", "==", "meeting"));
   const qForGrocery = query(tasksRef, where("tag", "==", "grocery"));
   const qForAssignment = query(tasksRef, where("tag", "==", "assignment"));
