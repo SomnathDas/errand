@@ -17,6 +17,10 @@ const TaskFeed = ({ taskData, parentTheme }) => {
     };
     updateIsDone();
   }, [taskDone]);
+  
+  useEffect(() => {
+    setTaskDone(taskData["isDone"]);
+  }, [taskData]);
 
   const deleteTask = async () => {
     await deleteDoc(doc(db, "tasks", taskData.id));
