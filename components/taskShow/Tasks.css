@@ -54,7 +54,7 @@
   background-color: #2ec4b554;
 }
 
-.create-task-btn-label-mob {
+.create-task-btn-label-mob.dark {
   color: var(--global-alt-blue, #2ec4b6);
 }
 
