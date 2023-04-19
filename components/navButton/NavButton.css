@@ -45,9 +45,11 @@
   transition: all 100ms linear;
 }
 
-.button:hover {
-  height: 100px;
-  transition: all 200ms cubic-bezier(0.165, 0.84, 0.44, 1);
+@media screen and (min-width: 1000px) {
+  .button:hover {
+    height: 100px;
+    transition: all 200ms cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
 }
 
 .button:hover .button-icon {

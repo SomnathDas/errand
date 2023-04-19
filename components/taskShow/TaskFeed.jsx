@@ -17,7 +17,7 @@ const TaskFeed = ({ taskData, parentTheme }) => {
     };
     updateIsDone();
   }, [taskDone]);
-  
+
   useEffect(() => {
     setTaskDone(taskData["isDone"]);
   }, [taskData]);

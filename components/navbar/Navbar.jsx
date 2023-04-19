@@ -6,7 +6,7 @@ import "./Navbar.css";
 import { auth } from "../../config/firebase/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { db } from "../../config/firebase/firebase";
-import { doc, addDoc, collection, setDoc } from "firebase/firestore";
+import { doc, setDoc } from "firebase/firestore";
 
 const Navbar = ({
   parentIsLoggingOut,
@@ -43,6 +43,7 @@ const Navbar = ({
       theme: parentTheme === "dark" ? "light" : "dark",
     });
   };
+
   return (
     <nav className={`navbar-container ${parentTheme}`}>
       <ul className="navbar-list">

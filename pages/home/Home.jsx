@@ -16,7 +16,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../../config/firebase/firebase";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 import { db } from "../../config/firebase/firebase";
-import { collection, orderBy, query, limit, where } from "firebase/firestore";
+import { collection, orderBy, query, setDoc, doc } from "firebase/firestore";
 
 /* React Router DOM */
 import { useNavigate } from "react-router-dom";
@@ -82,9 +82,12 @@ const Home = () => {
 
   useEffect(() => {
     setTheme(
-      users?.filter((user) => user.id === auth.currentUser.uid)[0]["theme"]
+      users?.filter((user) => user.id == auth.currentUser.uid)[0] === undefined
+        ? "dark"
+        : users?.filter((user) => user.id == auth.currentUser.uid)[0]["theme"]
     );
   }, [users]);
+
   return user ? (
     <div className="App">
       <Overlay isOpen={isCreateTask}>
