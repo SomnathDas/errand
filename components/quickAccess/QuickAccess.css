@@ -1,0 +1,32 @@
+.quick-access-container {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.quick-access-head {
+  font-family: "Roboto", sans-serif;
+}
+
+.quick-access-head h1 {
+  font-size: 2rem;
+  font-weight: 300;
+  /* text-decoration: underline wavy var(--global-blue, #1c5d99) 2px; */
+}
+
+.quick-access-cards {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  gap: 1rem;
+}
+
+@media screen and (max-width: 500px) {
+  .quick-access-cards {
+    display: grid;
+    justify-content: center;
+    grid-template-areas:
+      "A A"
+      "B C";
+  }
+}

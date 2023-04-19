@@ -1,0 +1,78 @@
+.tasks-container {
+  font-family: "Roboto", sans-serif;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  height: 100%;
+  overflow-y: scroll;
+}
+
+.tasks-container h1 {
+  font-size: 2rem;
+  font-weight: 300;
+  /* text-decoration: underline wavy var(--global-blue, #1c5d99) 2px; */
+}
+
+.task-head {
+  display: flex;
+  justify-content: space-between;
+}
+
+.tasks-feed {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 12px;
+}
+
+/* Create Task Button */
+.create-task-btn-mob {
+  background-color: var(--trans-active, #1c5d992c);
+  border-radius: 9999px;
+  border: solid white 1px;
+  padding: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.create-task-btn-label-mob {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  color: var(--active, #1c5d99);
+}
+
+.create-task-btn-mob:active {
+  background-color: white;
+  border: var(--active, #1c5d99) solid 1px;
+}
+
+.create-task-btn-mob.dark {
+  background-color: #2ec4b554;
+}
+
+.create-task-btn-label-mob {
+  color: var(--global-alt-blue, #2ec4b6);
+}
+
+.create-task-btn-mob:active {
+  border: var(--global-alt-blue, #2ec4b6);
+}
+
+/* Create Task Button */
+
+@media screen and (max-width: 500px) {
+  .tasks-container {
+    height: auto;
+    overflow-y: unset;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .create-task-btn-mob {
+    display: none;
+  }
+}

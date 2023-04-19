@@ -1,0 +1,224 @@
+.calendar-container {
+  /* Variables */
+  --calendar-bg: white;
+  --active: #1c5d99;
+  --trans-active: #1c5d992c;
+  /* Variables */
+
+  font-family: "Roboto", sans-serif;
+  background-color: var(--calendar-bg);
+  padding: 18px;
+  border-radius: 20px;
+}
+
+.calendar-container.dark {
+  background-color: var(--global-dark-bg, #080f0f);
+  color: white;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.calendar-header h1 {
+  font-weight: 500;
+  font-size: 1.5rem;
+}
+
+.calendar {
+  height: 300px;
+}
+
+.calendar-top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.prev-next-btn-container {
+  display: flex;
+  gap: 20px;
+}
+
+.calendar-month {
+  font-size: 400;
+  font-size: 1.2rem;
+}
+
+.calendar-weeks {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  column-gap: 10px;
+}
+
+.calendar-days {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.calendar-days-elems {
+  text-align: center;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 50ms ease-in-out;
+}
+
+.calendar-days-elems:hover {
+  background-color: var(--active);
+  color: white;
+  transition: all 50ms ease-in-out;
+}
+
+.calendar-days-elems.dark:hover {
+  background-color: #2ec4b554;
+  color: white;
+  transition: all 50ms ease-in-out;
+}
+
+.calendar-weeks li {
+  padding: 10px;
+  font-weight: 500;
+  color: #829399;
+}
+
+.calendar-days li {
+  padding: 10px;
+  font-weight: 500;
+}
+
+/* Utilities */
+.prev-month-date {
+  color: #829399;
+}
+
+.isToday {
+  color: white;
+  background-color: var(--active, #1c5d99);
+}
+
+.isToday.dark {
+  color: white;
+  background-color: var(--global-alt-blue, #2ec4b6);
+}
+/* Utilities */
+
+/* Create Task Button */
+.create-task-btn {
+  background-color: var(--trans-active, #1c5d992c);
+  border-radius: 9999px;
+  border: transparent;
+  height: 48px;
+  width: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 200ms cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.create-task-btn.dark {
+  background-color: #2ec4b554;
+}
+
+.create-task-btn-label.dark {
+  color: var(--global-alt-blue, #2ec4b6);
+}
+
+.create-task-icon.dark {
+  color: white;
+  border: dashed white 2px;
+}
+
+.create-task-btn-label {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  color: var(--active, #1c5d99);
+  opacity: 0;
+  transition: opacity 120ms cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.create-task-btn:hover .create-task-btn-label {
+  opacity: 1;
+  transition: opacity 120ms cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.create-task-icon {
+  font-size: 28px;
+  color: var(--active, #1c5d99);
+  border: dashed #03427c 2px;
+  border-radius: 9999px;
+}
+
+.create-task-btn:hover {
+  width: 100px;
+  transition: all 200ms cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.create-task-btn:hover .create-task-icon {
+  display: none;
+}
+
+.create-task-btn:active {
+  background-color: white;
+  border: var(--active, #1c5d99);
+}
+/* Create Task Button */
+
+/* Previous and Next Buttons */
+.prev-next-btn {
+  background-color: var(--trans-active, #1c5d992c);
+  color: var(--active, #1c5d99);
+  border-radius: 9999px;
+  border: solid white;
+  height: 38px;
+  width: 38px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 200ms cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.prev-next-btn.dark {
+  color: var(--global-alt-blue, #2ec4b6);
+  border: solid #080f0f;
+  background-color: #2ec4b554;
+}
+
+.prev-next-btn:hover {
+  width: 80px;
+  transition: all 200ms cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.prev-next-btn:disabled {
+  background-color: gainsboro;
+  color: black;
+  border: solid gray 1px;
+}
+
+.prev-next-btn:active {
+  background-color: white;
+  border: var(--active, #1c5d99);
+}
+/* Previous and Next Buttons */
+
+.calendar-days-elems {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.has-tasks {
+  height: 10px;
+  width: 10px;
+  background-color: #1c5d99;
+  border-radius: 100px;
+  border: solid 1px white;
+}
+
+.has-tasks.dark {
+  background-color: var(--global-alt-blue, #2ec4b6);
+}

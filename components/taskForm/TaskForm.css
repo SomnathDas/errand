@@ -1,0 +1,41 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.task-form-container {
+  display: grid;
+  gap: 20px;
+  width: 50%;
+  font-family: "Roboto", sans-serif;
+}
+
+.task-form-container button {
+  justify-self: center;
+}
+
+.task-form-container input,
+.task-form-container select {
+  background-color: white;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 18px;
+  border: none;
+  outline: none;
+}
+
+.task-form-container input:focus,
+.task-form-container select:focus {
+  outline: lightcoral solid 1px;
+}
+
+.task-form-container label {
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+}

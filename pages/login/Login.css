@@ -1,0 +1,78 @@
+.login-container {
+  height: 100vh;
+  display: flex;
+}
+
+.login {
+  width: 60%;
+  font-family: "Poppins", sans-serif;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  gap: 24px;
+}
+
+.google-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+
+  border-radius: 50px;
+  border: solid transparent 2px;
+  background: transparent;
+
+  cursor: pointer;
+}
+
+.google-btn:hover {
+  border: solid lightskyblue 2px;
+}
+
+.google-icon {
+  height: 32px;
+  width: 32px;
+  background-image: url(https://www.svgrepo.com/download/448227/google.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 120ms cubic-bezier(0.17, 0.67, 0.83, 0.67);
+}
+
+.login-title {
+  font-size: 2rem;
+}
+
+.login-subtitle {
+  font-size: 1.5rem;
+  font-weight: lighter;
+}
+
+.side-bg {
+  background: url(https://unsplash.com/photos/Lw7BruqPnJY/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8MjB8fGJsdWUlMjBjeWJlcnB1bmt8ZW58MHx8fHwxNjgxNzE1MTgz&force=true&w=1920);
+  background-color: lightskyblue;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 40%;
+}
+
+@media screen and (max-width: 1000px) {
+  .side-bg {
+    display: none;
+  }
+
+  .login {
+    padding: 15px;
+    width: 100%;
+  }
+}

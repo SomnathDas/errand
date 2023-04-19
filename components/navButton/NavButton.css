@@ -1,0 +1,61 @@
+.button {
+  background-color: var(--trans-active, #1c5d992c);
+  border-radius: 9999px;
+  border: solid transparent;
+  height: 48px;
+  width: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 200ms cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.button.dark {
+  background-color: #2ec4b554;
+}
+
+.button-label.dark {
+  color: var(--global-alt-blue, #2ec4b6);
+}
+
+.button-icon.dark {
+  color: var(--global-alt-blue, #2ec4b6);
+}
+
+.button-label {
+  position: fixed;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  color: var(--active, #1c5d99);
+  opacity: 0;
+  transition: opacity 200ms cubic-bezier(0.075, 0.82, 0.165, 1);
+  transform: rotate(270deg);
+}
+
+.button:hover .button-label {
+  opacity: 1;
+  transition: opacity 200ms cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.button-icon {
+  font-size: 28px;
+  color: var(--active, #1c5d99);
+  border-radius: 9999px;
+  transition: all 100ms linear;
+}
+
+.button:hover {
+  height: 100px;
+  transition: all 200ms cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.button:hover .button-icon {
+  opacity: 0;
+  transition: all 100ms linear;
+}
+
+.button:active {
+  background-color: white;
+  border: var(--active, #1c5d99);
+}

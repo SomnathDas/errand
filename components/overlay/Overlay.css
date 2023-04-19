@@ -1,0 +1,16 @@
+.overlay-background {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.329);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 99;
+}
+
+.overlay-container {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

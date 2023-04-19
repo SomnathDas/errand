@@ -1,0 +1,48 @@
+.task-feed-container {
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+  border-radius: 20px;
+  padding: 1.2rem;
+  /*border: dashed 1.2px #1c5d99;*/
+  border: solid 1.2px transparent;
+  gap: 10px;
+}
+
+.task-feed-container.dark {
+  background-color: var(--global-alt-blue, #2ec4b6);
+}
+
+.task-feed-container:hover {
+  border: solid 1.2px #1c5d99;
+  cursor: pointer;
+}
+
+.task-head {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.task-head h2 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 1.2rem;
+  word-wrap: break-word;
+}
+
+#is-done {
+  cursor: pointer;
+}
+
+#is-done:checked ~ #task-title {
+  text-decoration: line-through;
+}
+
+@media screen and (max-width: 500px) {
+  .task-head h2 {
+    font-size: 1rem;
+    word-break: break-word;
+  }
+}

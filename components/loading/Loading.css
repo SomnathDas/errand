@@ -1,0 +1,24 @@
+.loading {
+  height: 100vh;
+  background-color: #080f0f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cube {
+  height: 60px;
+  animation: 2s lightIn cubic-bezier(0.1, 0.7, 0.8, 0.1) infinite alternate;
+}
+
+@keyframes lightIn {
+  0% {
+    fill: #001219;
+  }
+  50% {
+    fill: #17bebb;
+  }
+  100% {
+    fill: #001219;
+  }
+}

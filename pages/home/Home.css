@@ -1,0 +1,68 @@
+.App {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 5% auto 25%;
+}
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.timeline {
+  background-color: #f7f6f9;
+  height: 100vh;
+  padding: 0.5rem;
+  overflow-y: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.navbar.dark {
+  background-color: var(--global-dark-bg, #080f0f);
+}
+
+.timeline.dark {
+  background-color: var(--global-dark, #0b1313);
+  color: white;
+}
+
+.sideline.dark {
+  background-color: var(--global-dark-bg, #080f0f);
+}
+
+.sideline {
+  height: 100vh;
+  padding: 0.5rem;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+@media screen and (max-width: 1000px) {
+  .sideline {
+    display: none;
+  }
+  .App {
+    grid-template-columns: none;
+    grid-template-rows: 10% auto;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .timeline {
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    overflow: visible;
+  }
+}

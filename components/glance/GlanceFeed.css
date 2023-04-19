@@ -1,0 +1,11 @@
+.glance-head {
+  display: flex;
+  gap: 10px;
+}
+
+.glance-body {
+  background-color: #f7f6f9;
+  padding: 1rem;
+  border-radius: 50px;
+  word-wrap: break-word;
+}
