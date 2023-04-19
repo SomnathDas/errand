@@ -33,9 +33,9 @@ const Glance = ({ nowDate, parentNowTasks, parentTheme }) => {
         </strong>{" "}
         {`\n`}({nowTasks.length} Events)
       </h1>
-      {nowTasks.map((data) => <GlanceFeed taskData={data} key={data.id} />) || (
-        <p>Loading</p>
-      )}
+      {nowTasks.map((data) => (
+        <GlanceFeed taskData={data} key={data.id} parentTheme={parentTheme} />
+      )) || <p>Loading</p>}
     </div>
   );
 };

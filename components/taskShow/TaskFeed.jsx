@@ -2,7 +2,7 @@ import "./TaskFeed.css";
 import { useEffect, useState } from "react";
 
 /* Firebase */
-import { db } from "../../config/firebase/firebase";
+import { auth, db } from "../../config/firebase/firebase";
 import { doc, updateDoc, deleteDoc } from "firebase/firestore";
 import CircularBtn from "../circularBtn/CircularBtn";
 
@@ -11,9 +11,12 @@ const TaskFeed = ({ taskData, parentTheme }) => {
 
   useEffect(() => {
     const updateIsDone = async () => {
-      await updateDoc(doc(db, "tasks", taskData["id"]), {
-        isDone: taskDone,
-      });
+      await updateDoc(
+        doc(db, "users", auth.currentUser.uid, "tasks", taskData["id"]),
+        {
+          isDone: taskDone,
+        }
+      );
     };
     updateIsDone();
   }, [taskDone]);
@@ -23,7 +26,9 @@ const TaskFeed = ({ taskData, parentTheme }) => {
   }, [taskData]);
 
   const deleteTask = async () => {
-    await deleteDoc(doc(db, "tasks", taskData.id));
+    await deleteDoc(
+      doc(db, "users", auth.currentUser.uid, "tasks", taskData["id"])
+    );
   };
   return (
     <div className={`task-feed-container ${parentTheme}`}>

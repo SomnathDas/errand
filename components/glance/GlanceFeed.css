@@ -9,3 +9,12 @@
   border-radius: 50px;
   word-wrap: break-word;
 }
+
+.glance-body.dark {
+  color: black;
+  background-color: #2ec4b6;
+}
+
+.glance-head.dark {
+  color: black;
+}

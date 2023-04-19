@@ -32,18 +32,24 @@ const Home = () => {
 
   // Task States
 
+  const [q, setQ] = useState();
+  const [qUsers, setQUsers] = useState();
+
   useEffect(() => {
     if (!user) {
       navigate("/login");
+    } else {
+      /* Firebase Database */
+      const tasksRef = collection(db, "users", user.uid, "tasks");
+      const usersRef = collection(db, "users");
+
+      const q = query(tasksRef, orderBy("priority", "desc"));
+      const qUsers = query(usersRef);
+
+      setQ(q);
+      setQUsers(qUsers);
     }
   }, [user, loading]);
-
-  /* Firebase Database */
-  const tasksRef = collection(db, "tasks");
-  const usersRef = collection(db, "users");
-
-  const q = query(tasksRef, orderBy("priority", "desc"));
-  const qUsers = query(usersRef);
 
   const [users, isUsersLoading, isUsersError, snapshotUsers] =
     useCollectionData(qUsers);
@@ -51,11 +57,6 @@ const Home = () => {
   const [tasks, isTaskLoading, isTaskError, snapshot] = useCollectionData(q);
 
   const [filteredTasks, setFilteredTasks] = useState();
-
-  useEffect(() => {
-    if (tasks) {
-    }
-  }, [tasks]);
 
   useEffect(() => {
     const allTasks = snapshot?.docs.map((doc) => ({

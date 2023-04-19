@@ -3,7 +3,7 @@ import "./TaskForm.css";
 import { useState, useEffect } from "react";
 
 /* Firebase */
-import { db } from "../../config/firebase/firebase";
+import { auth, db } from "../../config/firebase/firebase";
 import {
   doc,
   addDoc,
@@ -28,7 +28,7 @@ const TaskForm = ({ isOpen, setIsOpen, parentTheme }) => {
 
     let date = new Date(toBeDoneOn);
 
-    await addDoc(collection(db, "tasks"), {
+    await addDoc(collection(db, "users", auth.currentUser.uid, "tasks"), {
       title: title,
       duration: parseInt(duration),
       toBeDoneOn: Timestamp.fromDate(date),
