@@ -25,7 +25,7 @@ const Tasks = ({
           className={`create-task-btn-mob ${parentTheme}`}
           onClick={() => setIsOpen(!isOpen)}
         >
-          <p className="create-task-btn-label-mob">Create</p>
+          <p className={`create-task-btn-label-mob ${parentTheme}`}>Create</p>
         </button>
       </div>
 
