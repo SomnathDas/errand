@@ -3,20 +3,35 @@ import QuickAccessCards from "./QuickAccessCards";
 
 /* Firebase */
 import { useCollectionData } from "react-firebase-hooks/firestore";
-import { db } from "../../config/firebase/firebase";
-import { collection, orderBy, query, limit, where } from "firebase/firestore";
+import { auth, db } from "../../config/firebase/firebase";
+import { collection, query, where } from "firebase/firestore";
 import { useEffect, useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 const QuickAccess = ({ parentFilter, parentSetFilter }) => {
+  const [user, isUserLoading, isUserError] = useAuthState(auth);
+
   const [meetingAmt, setMeetingAmt] = useState(0);
   const [groceryAmt, setGroceryAmt] = useState(0);
   const [assignmentAmt, setAssignmentAmt] = useState(0);
 
+  const [qForMeeting, setQForMeeting] = useState();
+  const [qForGrocery, setQForGrocery] = useState();
+  const [qForAssignment, setQForAssignment] = useState();
+
   /* Firebase Database */
-  const tasksRef = collection(db, "users", auth.currentUser.uid, "tasks");
-  const qForMeeting = query(tasksRef, where("tag", "==", "meeting"));
-  const qForGrocery = query(tasksRef, where("tag", "==", "grocery"));
-  const qForAssignment = query(tasksRef, where("tag", "==", "assignment"));
+  useEffect(() => {
+    const tasksRef = collection(db, "users", user.uid, "tasks");
+
+    const qForMeeting = query(tasksRef, where("tag", "==", "meeting"));
+    const qForGrocery = query(tasksRef, where("tag", "==", "grocery"));
+    const qForAssignment = query(tasksRef, where("tag", "==", "assignment"));
+
+    setQForMeeting(qForMeeting);
+    setQForGrocery(qForGrocery);
+    setQForAssignment(qForAssignment);
+  }, [user]);
+
   const [tasksM, isTaskLoadingM, isTaskErrorM, snapshotM] =
     useCollectionData(qForMeeting);
 
